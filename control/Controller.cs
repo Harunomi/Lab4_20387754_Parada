@@ -144,8 +144,41 @@ namespace Lab4.control
             }
             return false;
         }
+        
+        /// <summary>
+        /// dejamos una marca que en la red social actualmente no hay ningun conectado 
+        /// </summary>
+        public void Logout()
+        {
+            redSocial.Online = false;
+        }
+        /// <summary>
+        /// funcion que permite saber si hay un usuario conectado en la red social
+        /// </summary>
+        /// <returns>
+        /// true si hay un usuario online, false caso contrario
+        /// </returns>
+        public bool isOnline()
+        {
+            if(redSocial.Online == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
-
+        public void post(string tipo, string texto)
+        {
+            // creamos la publicacion
+            Post nuevoPost = new Post(tipo, texto);
+            // la agregamos a la red social
+            redSocial.Publicaciones.Add(nuevoPost);
+            // se agrega la publicacion a la lista de publicaciones del usuario online
+            redSocial.UsuarioOnline.Publicaciones.Add(nuevoPost); 
+        }
     }
 
     
