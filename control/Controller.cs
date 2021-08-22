@@ -2,6 +2,7 @@
 using Lab4.model;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace Lab4.control
 {
@@ -99,6 +100,52 @@ namespace Lab4.control
             user5.Followers.Add(user2);
 
         }
+
+        ///<summary>
+        /// Registra a un usuario en la red social, retorna true si se pudo crear el usuario, false sino.
+        /// </summary>
+        
+        /// <returns>
+        /// true si el usuario fue registrado, false si ya existia en la red social.
+        /// </returns>
+        
+        public bool Register(string username, string password)
+        {
+            // verificamos que el usuario no exista en la red social
+            if (redSocial.Usuarios.Any(i=>i.Username == username))
+            {
+                return false;
+            }
+            else
+            {
+                User nuevoUsuario = new User(username, password);
+                redSocial.Usuarios.Add(nuevoUsuario);
+                return true;
+            }
+        }
+
+        ///<summary>
+        /// Autentifica a un usuario en la red social comprobando que sea el nombre de usuario y contrasena correctos
+        /// </summary>
+        
+        ///<returns>
+        /// true si el usuario con su username coincidia con su contrasena, false caso contrario
+        /// </returns>
+        
+        public bool Login(string username, string password)
+        {
+            // verificamos que el usuario y contrasena sean validos
+            if(redSocial.Usuarios.Any(i=>i.Username == username && i.Password == password))
+            {
+                // si es verdad, loggeamos al usuario
+                redSocial.UsuarioOnline = redSocial.Usuarios.Find(i => i.Username == username);
+                redSocial.Online = true;
+                return true;
+            }
+            return false;
+        }
+
+
     }
 
     

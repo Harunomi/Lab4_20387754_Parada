@@ -34,12 +34,19 @@ namespace Lab4.model
             this.publicaciones = new List<Post>();
             this.reacts = new List<React>();
         }
-
+        /// <value> Devuelve o setea el nombre de la red social</value>
         public string Name { get => name; set => name = value; }
+        /// <value> Devuelve o setea la fecha de creacion de la red social </value>
         public string Fecha { get => fecha; set => fecha = value; }
+        /// <value> Devuelve o setea la lista de usuarios de la red social </value>
         public List<User> Usuarios { get => usuarios; set => usuarios = value; }
+        /// <value> Devuelve o setea la lista de publicaciones de la red social </value>
         public List<Post> Publicaciones { get => publicaciones; set => publicaciones = value; }
+        /// <value> Devuelve o setea la lista de reacciones de la red social </value>
         public List<React> Reacts { get => reacts; set => reacts = value; }
+        /// <value> Devuelve o setea el usuario online de la red social </value>
         public User UsuarioOnline { get => usuarioOnline; set => usuarioOnline = value; }
+        /// <value> Devuelve o setea el boolean del usuario online </value>
+        public bool Online { get => online; set => online = value; }
     }
 }
