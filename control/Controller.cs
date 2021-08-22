@@ -169,16 +169,58 @@ namespace Lab4.control
                 return false;
             }
         }
-
+        /// <summary>
+        /// funcion que permite crear una publicacion dentro de una red social
+        /// </summary>
+        /// <param name="tipo"></param>
+        /// <param name="texto"></param>
         public void post(string tipo, string texto)
         {
             // creamos la publicacion
             Post nuevoPost = new Post(tipo, texto);
+            // le agregamos el autor de la publicacion
+            nuevoPost.Autor = redSocial.UsuarioOnline;
             // la agregamos a la red social
             redSocial.Publicaciones.Add(nuevoPost);
             // se agrega la publicacion a la lista de publicaciones del usuario online
             redSocial.UsuarioOnline.Publicaciones.Add(nuevoPost); 
         }
+        /// <summary>
+        /// funcion que permite crear una publicacion dentro de una red social con etiquetados
+        /// </summary>
+        /// <param name="tipo"></param>
+        /// <param name="texto"></param>
+        /// <param name="tags"></param>
+        public void post(string tipo, string texto, List<string> tags)
+        {
+            // creamos la publicacion
+            Post nuevoPost = new Post(tipo, texto,tags);
+            // le agregamos el autor de la publicacion
+            nuevoPost.Autor = redSocial.UsuarioOnline;
+            // la agregamos a la red social
+            redSocial.Publicaciones.Add(nuevoPost);
+            // se agrega la publicacion a la lista de publicaciones del usuario online
+            redSocial.UsuarioOnline.Publicaciones.Add(nuevoPost);
+        }
+        /// <summary>
+        /// funcion uqe permite seguir a otro usuario dentro de la red social
+        /// </summary>
+        /// <param name="username"></param>
+        public void Follow(string username)
+        {
+            // verificamos si el usuario a seguir existe
+            if(redSocial.Usuarios.Any(i=>i.Username == username))
+            {
+                // verificamos que el usuario no se pueda seguir a si mismo
+                if(redSocial.UsuarioOnline.Username != username)
+                {
+                    // agregamos el usuario online  a la lista de followers del usuario a seguir
+                    redSocial.Usuarios.Find(i => i.Username == username).Followers.Add(redSocial.UsuarioOnline);
+                }
+            }
+        }
+
+       
     }
 
     
