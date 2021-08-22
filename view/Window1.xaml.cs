@@ -26,12 +26,12 @@ namespace Lab4.view
 
         private void BTN_bloque1_Click(object sender, RoutedEventArgs e)
         {
-            TB_bloque1.Text = "la wea que querai";
+            TB_bloque1.Text = "uwu";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            TB_bloque1.Text = "la wea que querai2222";
+            TB_bloque1.Text = "uwunt";
         }
     }
 }
