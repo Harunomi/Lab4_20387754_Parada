@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab4.vista"
         mc:Ignorable="d"
-        Title="crearPublicacion" Height="450" Width="800">
+        Title="LMAOBOOK - Crear publicacion" Height="450" Width="800">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -15,12 +15,15 @@
         </Grid.Background>
         <Image HorizontalAlignment="Left" Height="104" Margin="224,24,0,0" VerticalAlignment="Top" Width="354" Source="logo.png"/>
         <TextBox x:Name="tipoPublicacion" HorizontalAlignment="Left" Height="23" Margin="325,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
-        <Button x:Name="publicarBT" Content="Registrar" HorizontalAlignment="Left" Margin="368,347,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.312,1.082" Click="publicarBT_Click"/>
+        <Button x:Name="publicarBT" Content="Publicar!" HorizontalAlignment="Left" Margin="368,347,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.312,1.082" Click="publicarBT_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="327,146,0,0" TextWrapping="Wrap" Text="Ingrese el tipo de publicacion" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="310,248,0,0" TextWrapping="Wrap" Text="Ingrese el contenido de la publicacion:" VerticalAlignment="Top"/>
         <TextBox x:Name="contenidoPublicacion" HorizontalAlignment="Left" Height="69" Margin="273,269,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265"/>
         <Button x:Name="volverMenuP" Content="Volver" HorizontalAlignment="Left" Margin="47,368,0,0" VerticalAlignment="Top" Width="75" Click="volverMenuP_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="273,190,0,0" TextWrapping="Wrap" Text="Ingrese los etiquetados separados por comas  (si no desea etiquetar a nadie, deje el espacio en blanco):" VerticalAlignment="Top" Height="37" Width="277" IsManipulationEnabled="True"/>
         <TextBox x:Name="publicacionTags" HorizontalAlignment="Left" Height="23" Margin="327,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
+        <Image HorizontalAlignment="Left" Height="51" Margin="630,358,0,0" VerticalAlignment="Top" Width="38" Source="userIcon.png" RenderTransformOrigin="0.87,0.476"/>
+        <TextBlock HorizontalAlignment="Left" Margin="685,352,0,0" TextWrapping="Wrap" Text="Usuario online:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="stringUsuarioOnline" HorizontalAlignment="Left" Margin="685,373,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
     </Grid>
 </Window>

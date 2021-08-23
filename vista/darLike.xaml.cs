@@ -25,6 +25,7 @@ namespace Lab4.vista
         public darLike()
         {
             InitializeComponent();
+            mostrarUsuarioOnline();
         }
 
         private void darLikeBT_Click(object sender, RoutedEventArgs e)
@@ -48,7 +49,7 @@ namespace Lab4.vista
                     }
                     else
                     {
-                        MessageBox.Show("La ID de la publicacion ingresada no existe");
+                        MessageBox.Show("La ID de la publicacion ingresada no existe o ya contiene un like del usuario");
                     }
 
                 }
@@ -64,6 +65,10 @@ namespace Lab4.vista
             MenuLoggeado ventana = new MenuLoggeado();
             ventana.Show();
             this.Close();
+        }
+        public void mostrarUsuarioOnline()
+        {
+            stringUsuarioOnline.Text = controlador.getStringUsuarioOnline();
         }
     }
 }

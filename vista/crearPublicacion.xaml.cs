@@ -25,6 +25,7 @@ namespace Lab4.vista
         public crearPublicacion()
         {
             InitializeComponent();
+            mostrarUsuarioOnline();
         }
 
         private void publicarBT_Click(object sender, RoutedEventArgs e)
@@ -36,7 +37,7 @@ namespace Lab4.vista
             }
             else
             {
-                // caso en que no hayan etieutados
+                // caso en que no hayan etiquetados
                 if(publicacionTags.Text == "")
                 {
                     controlador.PostRS(tipoPublicacion.Text, contenidoPublicacion.Text);
@@ -46,7 +47,7 @@ namespace Lab4.vista
                     this.Close();
 
                 }
-                // caso en que hayan etieutados
+                // caso en que hayan etiquetados
                 else
                 {
                     List<string> listaEtiquetados = publicacionTags.Text.Split(',').ToList();
@@ -71,6 +72,10 @@ namespace Lab4.vista
             MenuLoggeado ventana = new MenuLoggeado();
             ventana.Show();
             this.Close();
+        }
+        public void mostrarUsuarioOnline()
+        {
+            stringUsuarioOnline.Text = controlador.getStringUsuarioOnline();
         }
     }
 }

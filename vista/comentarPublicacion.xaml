@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab4.vista"
         mc:Ignorable="d"
-        Title="comentarPublicacion" Height="450" Width="800">
+        Title="LMAOBOOK - Comentar publicacion" Height="450" Width="800">
     <Grid>
-        
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FF06F4FF" Offset="0"/>
+                <GradientStop Color="#FF8BF09D" Offset="0.447"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Image HorizontalAlignment="Left" Height="104" Margin="224,24,0,0" VerticalAlignment="Top" Width="354" Source="logo.png"/>
+        <Image HorizontalAlignment="Left" Height="51" Margin="630,358,0,0" VerticalAlignment="Top" Width="38" Source="userIcon.png" RenderTransformOrigin="0.87,0.476"/>
+        <TextBlock HorizontalAlignment="Left" Margin="685,352,0,0" TextWrapping="Wrap" Text="Usuario online:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="stringUsuarioOnline" HorizontalAlignment="Left" Margin="685,373,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="IDcomentarBT" HorizontalAlignment="Left" Height="23" Margin="325,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+        <TextBlock HorizontalAlignment="Left" Margin="286,146,0,0" TextWrapping="Wrap" Text="Ingrese el ID de la publicacion o comentario:" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="303,206,0,0" TextWrapping="Wrap" Text="Ingrese el contenido de la publicacion:" VerticalAlignment="Top"/>
+        <TextBox x:Name="contenidoComentarioBox" HorizontalAlignment="Left" Height="49" Margin="303,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+        <Button x:Name="volverDarLikeBT" Content="Volver" HorizontalAlignment="Left" Margin="47,368,0,0" VerticalAlignment="Top" Width="75" Click="volverDarLikeBT_Click"/>
+        <Button x:Name="comentarBT" Content="Comentar!" HorizontalAlignment="Left" Margin="365,297,0,0" VerticalAlignment="Top" Width="75" Click="comentarBT_Click"/>
     </Grid>
 </Window>

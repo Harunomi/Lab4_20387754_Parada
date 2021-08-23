@@ -7,6 +7,39 @@
         mc:Ignorable="d"
         Title="verPerfil" Height="450" Width="800">
     <Grid>
-        
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FF06F4FF" Offset="0"/>
+                <GradientStop Color="#FF8BF09D" Offset="0.447"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Image HorizontalAlignment="Left" Height="104" Margin="224,24,0,0" VerticalAlignment="Top" Width="354" Source="logo.png"/>
+        <Image HorizontalAlignment="Left" Height="51" Margin="630,358,0,0" VerticalAlignment="Top" Width="38" Source="userIcon.png" RenderTransformOrigin="0.87,0.476"/>
+        <TextBlock HorizontalAlignment="Left" Margin="685,352,0,0" TextWrapping="Wrap" Text="Usuario online:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="stringUsuarioOnline" HorizontalAlignment="Left" Margin="685,373,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="49,115,0,0" TextWrapping="Wrap" Text="Nombre de usuario:" VerticalAlignment="Top" Height="30" Width="143" FontSize="16"/>
+        <TextBlock x:Name="nombreUsuarioTB" HorizontalAlignment="Left" Margin="197,115,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="431,115,0,0" TextWrapping="Wrap" Text="Fecha creacion de la cuenta:" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock x:Name="usuarioFechaTB" HorizontalAlignment="Left" Margin="639,115,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="49,150,0,0" TextWrapping="Wrap" Text="Total de publicaciones: " VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock x:Name="cantidadPublicacionTB" HorizontalAlignment="Left" Margin="224,150,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="16"/>
+        <ListBox  x:Name="publicacionesLB" HorizontalAlignment="Left" Height="107" Margin="27,176,0,0" VerticalAlignment="Top" Width="737" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock HorizontalAlignment="Left" Margin="18,17,0,-33" TextWrapping="Wrap" Text="ID:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="idPublicacionTB" HorizontalAlignment="Left" Margin="39,17,0,-33" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Id}"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="132,17,0,-33" TextWrapping="Wrap" Text="Fecha creacion:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="publicacionFechaTB" HorizontalAlignment="Left" Margin="224,17,0,-33" TextWrapping="Wrap" Text="{Binding Fecha}" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="331,17,0,-33" TextWrapping="Wrap" Text="Tipo de publicacion:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="tipoPublicacionTB" HorizontalAlignment="Left" Margin="448,17,0,-33" TextWrapping="Wrap" Text="{Binding Tipo}" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="551,17,0,-33" TextWrapping="Wrap" Text="Total de Likes:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="cantidadLikesTB" HorizontalAlignment="Left" Margin="636,17,0,-33" TextWrapping="Wrap" Text="{Binding Reactions.Count}" VerticalAlignment="Top" RenderTransformOrigin="0.238,0.667"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="18,44,0,-60" TextWrapping="Wrap" Text="Contenido de la publicacion:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="publicacionContenidoTB" HorizontalAlignment="Left" Margin="18,60,0,-99" TextWrapping="Wrap" Text="{Binding Texto}" VerticalAlignment="Top" Height="39" Width="700"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>

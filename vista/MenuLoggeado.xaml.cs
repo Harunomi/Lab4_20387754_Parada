@@ -64,5 +64,26 @@ namespace Lab4.vista
             ventana.Show();
             this.Close();
         }
+
+        private void shareBT_Click(object sender, RoutedEventArgs e)
+        {
+            compartirPublicacion ventana = new compartirPublicacion();
+            ventana.Show();
+            this.Close();
+        }
+
+        private void commentBT_Click(object sender, RoutedEventArgs e)
+        {
+            comentarPublicacion ventana = new comentarPublicacion();
+            ventana.Show();
+            this.Close();
+        }
+
+        private void visualizeBT_Click(object sender, RoutedEventArgs e)
+        {
+            verPerfil ventana = new verPerfil();
+            ventana.Show();
+            this.Close();
+        }
     }
 }

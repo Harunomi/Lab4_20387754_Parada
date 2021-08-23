@@ -19,10 +19,10 @@
         <TextBlock HorizontalAlignment="Left" Margin="685,352,0,0" TextWrapping="Wrap" Text="Usuario online:" VerticalAlignment="Top"/>
         <TextBlock x:Name="stringUsuarioOnline" HorizontalAlignment="Left" Margin="685,373,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Button x:Name="followBT" Content="Seguir a un usuario" HorizontalAlignment="Left" Margin="321,158,0,0" VerticalAlignment="Top" Width="147" Click="followBT_Click"/>
-        <Button x:Name="shareBT" Content="Compartir una publicacion" HorizontalAlignment="Left" Margin="321,183,0,0" VerticalAlignment="Top" Width="147"/>
-        <Button x:Name="commentBT" Content="Comentar una publicacion" HorizontalAlignment="Left" Margin="321,208,0,0" VerticalAlignment="Top" Width="147"/>
+        <Button x:Name="shareBT" Content="Compartir una publicacion" HorizontalAlignment="Left" Margin="321,183,0,0" VerticalAlignment="Top" Width="147" Click="shareBT_Click"/>
+        <Button x:Name="commentBT" Content="Comentar una publicacion" HorizontalAlignment="Left" Margin="321,208,0,0" VerticalAlignment="Top" Width="147" Click="commentBT_Click"/>
         <Button x:Name="likeBT" Content="Dar like" HorizontalAlignment="Left" Margin="321,233,0,0" VerticalAlignment="Top" Width="147" Click="likeBT_Click"/>
-        <Button x:Name="visualizeBT" Content="Ver perfil" HorizontalAlignment="Left" Margin="321,258,0,0" VerticalAlignment="Top" Width="147"/>
+        <Button x:Name="visualizeBT" Content="Ver perfil" HorizontalAlignment="Left" Margin="321,258,0,0" VerticalAlignment="Top" Width="147" Click="visualizeBT_Click"/>
         <Button x:Name="logoutBT" Content="Logout" HorizontalAlignment="Left" Margin="47,368,0,0" VerticalAlignment="Top" Width="75" Click="logoutBT_Click"/>
     </Grid>
 </Window>

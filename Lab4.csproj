@@ -78,6 +78,9 @@
     <Compile Include="vista\MenuLoggeado.xaml.cs">
       <DependentUpon>MenuLoggeado.xaml</DependentUpon>
     </Compile>
+    <Compile Include="vista\publicacionW.xaml.cs">
+      <DependentUpon>publicacionW.xaml</DependentUpon>
+    </Compile>
     <Compile Include="vista\seguirUsuario.xaml.cs">
       <DependentUpon>seguirUsuario.xaml</DependentUpon>
     </Compile>
@@ -143,6 +146,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="vista\MenuLoggeado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vista\publicacionW.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

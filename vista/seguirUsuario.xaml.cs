@@ -25,6 +25,7 @@ namespace Lab4.vista
         public seguirUsuario()
         {
             InitializeComponent();
+            mostrarUsuarioOnline();
         }
 
         private void folllowBT_Click(object sender, RoutedEventArgs e)
@@ -55,5 +56,10 @@ namespace Lab4.vista
             ventana.Show();
             this.Close();
         }
+        public void mostrarUsuarioOnline()
+        {
+            stringUsuarioOnline.Text = controlador.getStringUsuarioOnline();
+        }
     }
 }
+

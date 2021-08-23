@@ -247,6 +247,27 @@ namespace Lab4.controlador
         /// funcion que permite compartir una publicacion segun su id
         /// </summary>
         /// <param name="id">id de la publicacion a compartir</param>
+        public bool Share(int id)
+        {
+            // buscamos la publicacion en la red social
+            if (redSocial.Publicaciones.Any(i => i.Id == id))
+            {
+                // creamos la publicacion compartida
+                Post publicacionCompartida = new Post(redSocial.Publicaciones.Find(i => i.Id == id).Tipo, redSocial.Publicaciones.Find(i => i.Id == id).Texto);
+                // agrego el usuario que compartio la publicacion a la publicacion original
+                redSocial.Publicaciones.Find(i => i.Id == id).Shared.Add(redSocial.UsuarioOnline);
+                // seteo el autor de la publicacion compartida
+                publicacionCompartida.Autor = redSocial.UsuarioOnline;
+                // agrego la publicacion creada a la lista de publicaciones del usuario
+                redSocial.UsuarioOnline.Publicaciones.Add(publicacionCompartida);
+                return true;
+            }
+            return false;
+        }
+        /// <summary>
+        /// funcion que permite compartir una publicacion segun su id
+        /// </summary>
+        /// <param name="id">id de la publicacion a compartir</param>
         /// <param name="tags">lista de etiquetados</param>
         public bool Share(int id, List<string> tags)
         {
@@ -262,7 +283,7 @@ namespace Lab4.controlador
             if (counter == tags.Count)
             {
                 // buscamos la publicacion en la red social
-                if (redSocial.Publicaciones.Any(i => i.Id == id))
+                if (redSocial.Publicaciones.Any(i => i.Id == id)) 
                 {
                     // creamos la publicacion compartida
                     Post publicacionCompartida = new Post(redSocial.Publicaciones.Find(i => i.Id == id).Tipo, redSocial.Publicaciones.Find(i => i.Id == id).Texto, tags);
@@ -282,7 +303,7 @@ namespace Lab4.controlador
         /// </summary>
         /// <param name="id">id de la publicacion a comentar</param>
         /// <param name="texto">contenido del comentario como string</param>
-        public void Comment(int id, string texto)
+        public bool Comment(int id, string texto)
         {
             // verificamos uqe la publicacion exista
             if (redSocial.Publicaciones.Any(i => i.Id == id))
@@ -295,7 +316,9 @@ namespace Lab4.controlador
                 redSocial.Publicaciones.Add(nuevoComentario);
                 // agregamos el comentario a la lista de publicaciones del usuario
                 redSocial.UsuarioOnline.Publicaciones.Add(nuevoComentario);
+                return true;
             }
+            return false;
         }
         
         /// <summary>
@@ -307,13 +330,22 @@ namespace Lab4.controlador
             // vericiamos que la publicacion exista
             if (redSocial.Publicaciones.Any(i => i.Id == id))
             {
-                // creamos la reaccion
-                React nuevaReaccion = new React(redSocial.UsuarioOnline, "like");
-                // agregamos la reaccion a la publicacion
-                redSocial.Publicaciones.Find(i => i.Id == id).Reactions.Add(nuevaReaccion);
-                // agregamos la reaccion a la lista de reacciones de la red social
-                redSocial.Reacts.Add(nuevaReaccion);
-                return true;
+                //verificamos que no exista una reaccion ya agregada con el usuario online como autor
+                if (redSocial.Publicaciones.Find(i => i.Id == id).Reactions.Any(j => j.Autor.Username == redSocial.UsuarioOnline.Username) == true)
+                {
+                    return false;
+                }
+                else
+                {
+                    // creamos la reaccion
+                    React nuevaReaccion = new React(redSocial.UsuarioOnline, "like");
+                    // agregamos la reaccion a la publicacion
+                    redSocial.Publicaciones.Find(i => i.Id == id).Reactions.Add(nuevaReaccion);
+                    // agregamos la reaccion a la lista de reacciones de la red social
+                    redSocial.Reacts.Add(nuevaReaccion);
+                    return true;
+                }
+                
             }
             return false;
         }
@@ -323,6 +355,20 @@ namespace Lab4.controlador
 
             return redSocial.UsuarioOnline.Username;
             
+        }
+
+        public string getFechaUsuarioOnline()
+        {
+            return redSocial.UsuarioOnline.Fecha;
+        }
+        public int getTotalPublicacionesUser()
+        {
+            return redSocial.UsuarioOnline.Publicaciones.Count();
+        }
+
+        public List<Post> getPublicacionesUsuario()
+        {
+            return redSocial.UsuarioOnline.Publicaciones;
         }
 
         
