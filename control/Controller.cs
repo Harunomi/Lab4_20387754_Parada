@@ -172,9 +172,9 @@ namespace Lab4.control
         /// <summary>
         /// funcion que permite crear una publicacion dentro de una red social
         /// </summary>
-        /// <param name="tipo"></param>
-        /// <param name="texto"></param>
-        public void post(string tipo, string texto)
+        /// <param name="tipo">el tipo de publicacion</param>
+        /// <param name="texto">el contenido de la publicacion</param>
+        public void PostRS(string tipo, string texto)
         {
             // creamos la publicacion
             Post nuevoPost = new Post(tipo, texto);
@@ -188,24 +188,37 @@ namespace Lab4.control
         /// <summary>
         /// funcion que permite crear una publicacion dentro de una red social con etiquetados
         /// </summary>
-        /// <param name="tipo"></param>
-        /// <param name="texto"></param>
-        /// <param name="tags"></param>
-        public void post(string tipo, string texto, List<string> tags)
+        /// <param name="tipo"> el tipo de publicacion</param>
+        /// <param name="texto">el texto de la publicacion</param>
+        /// <param name="tags">lista de etiquetados </param>
+        public void PostRS(string tipo, string texto, List<string> tags)
         {
-            // creamos la publicacion
-            Post nuevoPost = new Post(tipo, texto,tags);
-            // le agregamos el autor de la publicacion
-            nuevoPost.Autor = redSocial.UsuarioOnline;
-            // la agregamos a la red social
-            redSocial.Publicaciones.Add(nuevoPost);
-            // se agrega la publicacion a la lista de publicaciones del usuario online
-            redSocial.UsuarioOnline.Publicaciones.Add(nuevoPost);
+            // verificamos que los usuarios en tags existan en la red social 
+            int counter = 0;
+            for (int j = 0; j < tags.Count; j++)
+            {
+                if (redSocial.Usuarios.Any(i => i.Username == tags[j]))
+                {
+                    counter = counter + 1;
+                }
+            }
+            if (counter == tags.Count)
+            {
+                // creamos la publicacion
+                Post nuevoPost = new Post(tipo, texto, tags);
+                // le agregamos el autor de la publicacion
+                nuevoPost.Autor = redSocial.UsuarioOnline;
+                // la agregamos a la red social
+                redSocial.Publicaciones.Add(nuevoPost);
+                // se agrega la publicacion a la lista de publicaciones del usuario online
+                redSocial.UsuarioOnline.Publicaciones.Add(nuevoPost);
+            }
+                
         }
         /// <summary>
         /// funcion uqe permite seguir a otro usuario dentro de la red social
         /// </summary>
-        /// <param name="username"></param>
+        /// <param name="username">nombre del usuario a seguir</param>
         public void Follow(string username)
         {
             // verificamos si el usuario a seguir existe
@@ -219,8 +232,63 @@ namespace Lab4.control
                 }
             }
         }
+        /// <summary>
+        /// funcion que permite compartir una publicacion segun su id
+        /// </summary>
+        /// <param name="id">id de la publicacion a compartir</param>
+        /// <param name="tags">lista de etiquetados</param>
+        public void Share(int id, List<string> tags)
+        {
+            // verificamos que los usuarios en tags existan en la red social 
+            int counter = 0;
+            for (int j = 0; j < tags.Count; j++)
+            {
+                if(redSocial.Usuarios.Any(i=>i.Username == tags[j])){
+                    counter = counter + 1;
+                }
+            }
+            if(counter == tags.Count)
+            {
+                // buscamos la publicacion en la red social
+                if (redSocial.Publicaciones.Any(i => i.Id == id))
+                {
+                    // creamos la publicacion compartida
+                    Post publicacionCompartida = new Post(redSocial.Publicaciones.Find(i => i.Id == id).Tipo, redSocial.Publicaciones.Find(i => i.Id == id).Texto, tags);
+                    // agrego el usuario que compartio la publicacion a la publicacion original
+                    redSocial.Publicaciones.Find(i => i.Id == id).Shared.Add(redSocial.UsuarioOnline);
+                    // seteo el autor de la publicacion compartida
+                    publicacionCompartida.Autor = redSocial.UsuarioOnline;
+                    // agrego la publicacion creada a la lista de publicaciones del usuario
+                    redSocial.UsuarioOnline.Publicaciones.Add(publicacionCompartida);
 
-       
+
+
+                }
+            }
+        }
+        /// <summary>
+        /// funcion que permite crear un comentario a una publicacion o otro comentario
+        /// </summary>
+        /// <param name="id">id de la publicacion a comentar</param>
+        /// <param name="texto">contenido del comentario como string</param>
+        public void Comment(int id,string texto)
+        {
+            // verificamos uqe la publicacion exista
+            if(redSocial.Publicaciones.Any(i => i.Id == id ))
+            {
+                // creamos el comentario
+                Post nuevoComentario = new Post("comentario", texto);
+                // seteamos el comentario con el autor
+                nuevoComentario.Autor = redSocial.UsuarioOnline;
+                // agregamos el comentario a la lista de publicaciones de la red social
+                redSocial.Publicaciones.Add(nuevoComentario);
+                // agregamos el comentario a la lista de publicaciones del usuario
+                redSocial.UsuarioOnline.Publicaciones.Add(nuevoComentario);
+            }
+        }
+
+
+
     }
 
     
