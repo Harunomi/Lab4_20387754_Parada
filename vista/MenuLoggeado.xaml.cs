@@ -42,5 +42,27 @@ namespace Lab4.vista
             ventana.Show();
             this.Close();
         }
+
+        private void logoutBT_Click(object sender, RoutedEventArgs e)
+        {
+            controlador.Logout();
+            Window1 ventana = new Window1();
+            ventana.Show();
+            this.Close();
+        }
+
+        private void followBT_Click(object sender, RoutedEventArgs e)
+        {
+            seguirUsuario ventana = new seguirUsuario();
+            ventana.Show();
+            this.Close();
+        }
+
+        private void likeBT_Click(object sender, RoutedEventArgs e)
+        {
+            darLike ventana = new darLike();
+            ventana.Show();
+            this.Close();
+        }
     }
 }

@@ -223,7 +223,7 @@ namespace Lab4.controlador
         /// funcion uqe permite seguir a otro usuario dentro de la red social
         /// </summary>
         /// <param name="username">nombre del usuario a seguir</param>
-        public void Follow(string username)
+        public bool Follow(string username)
         {
             // verificamos si el usuario a seguir existe
             if (redSocial.Usuarios.Any(i => i.Username == username))
@@ -231,17 +231,24 @@ namespace Lab4.controlador
                 // verificamos que el usuario no se pueda seguir a si mismo
                 if (redSocial.UsuarioOnline.Username != username)
                 {
-                    // agregamos el usuario online  a la lista de followers del usuario a seguir
-                    redSocial.Usuarios.Find(i => i.Username == username).Followers.Add(redSocial.UsuarioOnline);
+                    // verificamos que el usuario ya no sea seguido por el usuario online
+                    if(redSocial.Usuarios.Find(i=>i.Username == username).Followers.Any(j=>j.Username == redSocial.UsuarioOnline.Username) == false)
+                    {
+                        // agregamos el usuario online  a la lista de followers del usuario a seguir
+                        redSocial.Usuarios.Find(i => i.Username == username).Followers.Add(redSocial.UsuarioOnline);
+                        return true;
+                    }
+                    
                 }
             }
+            return false;
         }
         /// <summary>
         /// funcion que permite compartir una publicacion segun su id
         /// </summary>
         /// <param name="id">id de la publicacion a compartir</param>
         /// <param name="tags">lista de etiquetados</param>
-        public void Share(int id, List<string> tags)
+        public bool Share(int id, List<string> tags)
         {
             // verificamos que los usuarios en tags existan en la red social 
             int counter = 0;
@@ -265,11 +272,10 @@ namespace Lab4.controlador
                     publicacionCompartida.Autor = redSocial.UsuarioOnline;
                     // agrego la publicacion creada a la lista de publicaciones del usuario
                     redSocial.UsuarioOnline.Publicaciones.Add(publicacionCompartida);
-
-
-
+                    return true;
                 }
             }
+            return false;
         }
         /// <summary>
         /// funcion que permite crear un comentario a una publicacion o otro comentario
@@ -296,7 +302,7 @@ namespace Lab4.controlador
         /// permite agregar un like a una publicacion
         /// </summary>
         /// <param name="id">el id de la publicacion a darle like</param>
-        public void Like(int id)
+        public bool Like(int id)
         {
             // vericiamos que la publicacion exista
             if (redSocial.Publicaciones.Any(i => i.Id == id))
@@ -307,8 +313,9 @@ namespace Lab4.controlador
                 redSocial.Publicaciones.Find(i => i.Id == id).Reactions.Add(nuevaReaccion);
                 // agregamos la reaccion a la lista de reacciones de la red social
                 redSocial.Reacts.Add(nuevaReaccion);
-
+                return true;
             }
+            return false;
         }
 
         public string getStringUsuarioOnline()

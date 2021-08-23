@@ -7,6 +7,16 @@
         mc:Ignorable="d"
         Title="darLike" Height="450" Width="800">
     <Grid>
-        
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FF06F4FF" Offset="0"/>
+                <GradientStop Color="#FF8BF09D" Offset="0.447"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Image HorizontalAlignment="Left" Height="104" Margin="224,24,0,0" VerticalAlignment="Top" Width="354" Source="logo.png"/>
+        <TextBlock HorizontalAlignment="Left" Margin="296,163,0,0" TextWrapping="Wrap" Text="Ingrese la ID de la publicacion a dar like" VerticalAlignment="Top" Height="18" Width="224"/>
+        <Button x:Name="volverDarLikeBT" Content="Volver" HorizontalAlignment="Left" Margin="47,368,0,0" VerticalAlignment="Top" Width="75" Click="volverDarLikeBT_Click"/>
+        <TextBox x:Name="idLikeBox" HorizontalAlignment="Left" Height="25" Margin="343,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122"/>
+        <Button x:Name="darLikeBT" Content="Dar Like!" HorizontalAlignment="Left" Margin="361,240,0,0" VerticalAlignment="Top" Width="80" Height="22" Click="darLikeBT_Click"/>
     </Grid>
 </Window>
