@@ -60,11 +60,29 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="controlador\Controlador.cs" />
+    <Compile Include="vista\comentarPublicacion.xaml.cs">
+      <DependentUpon>comentarPublicacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vista\compartirPublicacion.xaml.cs">
+      <DependentUpon>compartirPublicacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vista\crearPublicacion.xaml.cs">
+      <DependentUpon>crearPublicacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vista\darLike.xaml.cs">
+      <DependentUpon>darLike.xaml</DependentUpon>
+    </Compile>
     <Compile Include="vista\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="vista\MenuLoggeado.xaml.cs">
       <DependentUpon>MenuLoggeado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vista\seguirUsuario.xaml.cs">
+      <DependentUpon>seguirUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vista\verPerfil.xaml.cs">
+      <DependentUpon>verPerfil.xaml</DependentUpon>
     </Compile>
     <Compile Include="vista\Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
@@ -104,11 +122,35 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="vista\comentarPublicacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vista\compartirPublicacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vista\crearPublicacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vista\darLike.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="vista\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="vista\MenuLoggeado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vista\seguirUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vista\verPerfil.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -123,6 +165,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="vista\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="vista\userIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

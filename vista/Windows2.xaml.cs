@@ -35,22 +35,27 @@ namespace Lab4.vista
 
         private void RegistrarB_Click(object sender, RoutedEventArgs e)
         {
-            Window1 ventanaInicial = new Window1();
+            
             if(Username.Text == "" || Password.Password == "")
             {
                 MessageBox.Show("El usuario o la contrasena no pueden ser nulos");
             }
-            
-            if(controlador.Register(Username.Text, Password.Password))
-            {
-                MessageBox.Show("Usuario registrado");
-                ventanaInicial.Show();
-                this.Close();
-            }
             else
             {
-                MessageBox.Show("El usuario ya esta registrado");
+                if (controlador.Register(Username.Text, Password.Password))
+                {
+                    Window1 ventanaInicial = new Window1();
+                    MessageBox.Show("Usuario registrado");
+                    ventanaInicial.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("El usuario ya esta registrado");
+                }
             }
+            
+            
         }
     }
 }

@@ -29,22 +29,32 @@ namespace Lab4.vista
 
         private void IniciarSesionB_Click(object sender, RoutedEventArgs e)
         {
-            MenuLoggeado ventana = new MenuLoggeado();
+            
             if(UsernameLogin.Text == "" || PasswordLogin.Password == "")
             {
                 MessageBox.Show("El usuario o la contrasena no pueden ser nulos.");
             }
-            if (controlador.Login(UsernameLogin.Text, PasswordLogin.Password))
+            else if(controlador.Login(UsernameLogin.Text, PasswordLogin.Password))
             {
-                MessageBox.Show("Sesion iniciada con exito!");
+                MenuLoggeado ventana = new MenuLoggeado();
+                MessageBox.Show("Sesion iniciada como: " + controlador.getStringUsuarioOnline());
                 ventana.Show();
                 this.Close();
+               
             }
             else
             {
                 MessageBox.Show("El nombre de usuario y/o contrasena son incorrectos.");
             }
-            
+
+
+        }
+
+        private void registerOut_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 ventana = new Window1();
+            ventana.Show();
+            this.Close();
         }
     }
 }

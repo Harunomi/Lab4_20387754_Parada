@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab4.controlador;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,27 @@ namespace Lab4.vista
     /// </summary>
     public partial class MenuLoggeado : Window
     {
+        // atributos
+        Controlador controlador = (Controlador)Application.Current.FindResource("controlador");
         public MenuLoggeado()
         {
             InitializeComponent();
+            mostrarUsuarioOnline();
+          
+        }
+
+        public void mostrarUsuarioOnline()
+        {
+            stringUsuarioOnline.Text = controlador.getStringUsuarioOnline();
+
+
+        }
+
+        private void postBT_Click(object sender, RoutedEventArgs e)
+        {
+            crearPublicacion ventana = new crearPublicacion();
+            ventana.Show();
+            this.Close();
         }
     }
 }

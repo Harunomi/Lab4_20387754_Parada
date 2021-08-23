@@ -7,6 +7,21 @@
         mc:Ignorable="d"
         Title="MenuLoggeado" Height="450" Width="800">
     <Grid>
-        
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FF06F4FF" Offset="0"/>
+                <GradientStop Color="#FF8BF09D" Offset="0.447"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Image HorizontalAlignment="Left" Height="104" Margin="224,24,0,0" VerticalAlignment="Top" Width="354" Source="logo.png"/>
+        <Button x:Name="postBT" Content="Crear publicacion" HorizontalAlignment="Left" Margin="321,133,0,0" VerticalAlignment="Top" Width="147" Background="#FFDDDDDD" Click="postBT_Click"/>
+        <Image HorizontalAlignment="Left" Height="51" Margin="630,358,0,0" VerticalAlignment="Top" Width="38" Source="userIcon.png" RenderTransformOrigin="0.87,0.476"/>
+        <TextBlock HorizontalAlignment="Left" Margin="685,352,0,0" TextWrapping="Wrap" Text="Usuario online:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="stringUsuarioOnline" HorizontalAlignment="Left" Margin="685,373,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button x:Name="followBT" Content="Seguir a un usuario" HorizontalAlignment="Left" Margin="321,158,0,0" VerticalAlignment="Top" Width="147"/>
+        <Button x:Name="shareBT" Content="Compartir una publicacion" HorizontalAlignment="Left" Margin="321,183,0,0" VerticalAlignment="Top" Width="147"/>
+        <Button x:Name="commentBT" Content="Comentar una publicacion" HorizontalAlignment="Left" Margin="321,208,0,0" VerticalAlignment="Top" Width="147"/>
+        <Button x:Name="likeBT" Content="Dar like" HorizontalAlignment="Left" Margin="321,233,0,0" VerticalAlignment="Top" Width="147"/>
+        <Button x:Name="visualizeBT" Content="Ver perfil" HorizontalAlignment="Left" Margin="321,258,0,0" VerticalAlignment="Top" Width="147"/>
     </Grid>
 </Window>

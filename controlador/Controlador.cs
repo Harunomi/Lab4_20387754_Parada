@@ -21,6 +21,7 @@ namespace Lab4.controlador
         public Controlador()
         {
             this.redSocial = new Socialnetwork("LMAOBOOK");
+            poblarRedSocial();
         }
         // Metodos
 
@@ -192,7 +193,7 @@ namespace Lab4.controlador
         /// <param name="tipo"> el tipo de publicacion</param>
         /// <param name="texto">el texto de la publicacion</param>
         /// <param name="tags">lista de etiquetados </param>
-        public void PostRS(string tipo, string texto, List<string> tags)
+        public bool PostRS(string tipo, string texto, List<string> tags)
         {
             // verificamos que los usuarios en tags existan en la red social 
             int counter = 0;
@@ -213,7 +214,9 @@ namespace Lab4.controlador
                 redSocial.Publicaciones.Add(nuevoPost);
                 // se agrega la publicacion a la lista de publicaciones del usuario online
                 redSocial.UsuarioOnline.Publicaciones.Add(nuevoPost);
+                return true;
             }
+            return false;
 
         }
         /// <summary>
@@ -288,7 +291,11 @@ namespace Lab4.controlador
                 redSocial.UsuarioOnline.Publicaciones.Add(nuevoComentario);
             }
         }
-
+        
+        /// <summary>
+        /// permite agregar un like a una publicacion
+        /// </summary>
+        /// <param name="id">el id de la publicacion a darle like</param>
         public void Like(int id)
         {
             // vericiamos que la publicacion exista
@@ -303,6 +310,15 @@ namespace Lab4.controlador
 
             }
         }
+
+        public string getStringUsuarioOnline()
+        {
+
+            return redSocial.UsuarioOnline.Username;
+            
+        }
+
+        
 
 
 
