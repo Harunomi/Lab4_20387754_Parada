@@ -33,5 +33,12 @@ namespace Lab4.vista
             ventana.Show();
             this.Close();
         }
+
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            Login ventana = new Login();
+            ventana.Show();
+            this.Close();
+        }
     }
 }

@@ -5,9 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab4.vista"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800">
+        Title="LMAOBOOK - Home" Height="450" Width="800">
     <Grid>
-        <Button x:Name="Registrar" Content="Button" HorizontalAlignment="Left" Margin="362,176,0,0" VerticalAlignment="Top" Width="75" Click="Registrar_Click"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FF06F4FF" Offset="0"/>
+                <GradientStop Color="#FF8BF09D" Offset="0.447"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Button x:Name="Registrar" Content="Registrar un nuevo usuario" HorizontalAlignment="Left" Margin="302,202,0,0" VerticalAlignment="Top" Width="156" Click="Registrar_Click" Height="25"/>
+        <Button x:Name="Login" Content="Iniciar sesion" HorizontalAlignment="Left" Margin="302,251,0,0" VerticalAlignment="Top" Width="156" Height="25" Click="Login_Click"/>
+        <Image HorizontalAlignment="Left" Height="104" Margin="224,24,0,0" VerticalAlignment="Top" Width="354" Source="logo.png"/>
 
     </Grid>
 </Window>
