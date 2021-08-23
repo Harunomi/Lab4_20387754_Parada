@@ -1,0 +1,10 @@
+﻿<Application x:Class="Lab4.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Lab4"
+             xmlns:controller="clr-namespace:Lab4.controlador"
+             StartupUri="vista/Window1.xaml">
+    <Application.Resources>
+        <x:Static Member="controller:Controlador.Instancia" x:Key="controlador"/>
+    </Application.Resources>
+</Application>
