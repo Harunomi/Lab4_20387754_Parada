@@ -287,6 +287,21 @@ namespace Lab4.control
             }
         }
 
+        public void Like(int id)
+        {
+            // vericiamos que la publicacion exista
+            if(redSocial.Publicaciones.Any(i => i.Id == id))
+            {
+                // creamos la reaccion
+                React nuevaReaccion = new React(redSocial.UsuarioOnline, "like");
+                // agregamos la reaccion a la publicacion
+                redSocial.Publicaciones.Find(i=>i.Id == id).Reactions.Add(nuevaReaccion);
+                // agregamos la reaccion a la lista de reacciones de la red social
+                redSocial.Reacts.Add(nuevaReaccion);
+
+            }
+        }
+
 
 
     }
