@@ -30,6 +30,8 @@ namespace Lab4.vista
             actualizarFechaTB();
             actualizarTotalPublicacionesTB();
             rellenarPublicacionLB();
+            actualizarTotalSeguidores();
+            rellenarFollowersLB();
         }
         public void mostrarUsuarioOnline()
         {
@@ -51,6 +53,30 @@ namespace Lab4.vista
         public void rellenarPublicacionLB()
         {
             publicacionesLB.ItemsSource = controlador.getPublicacionesUsuario();
+        }
+        public void actualizarTotalSeguidores()
+        {
+            cantidadSeguidoresTB.Text = controlador.getTotalFollowersUser().ToString();
+        }
+        public void rellenarFollowersLB()
+        {
+            followersLB.ItemsSource = controlador.getFollowersUsuario();
+        }
+
+        private void publicacionesLB_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            int index = publicacionesLB.Items.IndexOf(publicacionesLB.SelectedItem);
+            comentarioPublicacion ventana = new comentarioPublicacion(index);
+            ventana.Show();
+            this.Close();
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MenuLoggeado ventana = new MenuLoggeado();
+            ventana.Show();
+            this.Close();
         }
     }
 }

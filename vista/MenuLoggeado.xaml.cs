@@ -33,7 +33,6 @@ namespace Lab4.vista
         {
             stringUsuarioOnline.Text = controlador.getStringUsuarioOnline();
 
-
         }
 
         private void postBT_Click(object sender, RoutedEventArgs e)

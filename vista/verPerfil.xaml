@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab4.vista"
         mc:Ignorable="d"
-        Title="verPerfil" Height="450" Width="800">
+        Title="verPerfil" Height="700" Width="800">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -14,19 +14,19 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Image HorizontalAlignment="Left" Height="104" Margin="224,24,0,0" VerticalAlignment="Top" Width="354" Source="logo.png"/>
-        <Image HorizontalAlignment="Left" Height="51" Margin="630,358,0,0" VerticalAlignment="Top" Width="38" Source="userIcon.png" RenderTransformOrigin="0.87,0.476"/>
-        <TextBlock HorizontalAlignment="Left" Margin="685,352,0,0" TextWrapping="Wrap" Text="Usuario online:" VerticalAlignment="Top"/>
-        <TextBlock x:Name="stringUsuarioOnline" HorizontalAlignment="Left" Margin="685,373,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Image HorizontalAlignment="Left" Height="51" Margin="633,607,0,0" VerticalAlignment="Top" Width="38" Source="userIcon.png" RenderTransformOrigin="0.87,0.476"/>
+        <TextBlock HorizontalAlignment="Left" Margin="688,601,0,0" TextWrapping="Wrap" Text="Usuario online:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="stringUsuarioOnline" HorizontalAlignment="Left" Margin="688,622,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="49,115,0,0" TextWrapping="Wrap" Text="Nombre de usuario:" VerticalAlignment="Top" Height="30" Width="143" FontSize="16"/>
         <TextBlock x:Name="nombreUsuarioTB" HorizontalAlignment="Left" Margin="197,115,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock HorizontalAlignment="Left" Margin="431,115,0,0" TextWrapping="Wrap" Text="Fecha creacion de la cuenta:" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock x:Name="usuarioFechaTB" HorizontalAlignment="Left" Margin="639,115,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock HorizontalAlignment="Left" Margin="49,150,0,0" TextWrapping="Wrap" Text="Total de publicaciones: " VerticalAlignment="Top" FontSize="16"/>
         <TextBlock x:Name="cantidadPublicacionTB" HorizontalAlignment="Left" Margin="224,150,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="16"/>
-        <ListBox  x:Name="publicacionesLB" HorizontalAlignment="Left" Height="107" Margin="27,176,0,0" VerticalAlignment="Top" Width="737" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+        <ListBox  x:Name="publicacionesLB" HorizontalAlignment="Left" Height="200" Margin="27,176,0,0" VerticalAlignment="Top" Width="737" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" MouseDoubleClick="publicacionesLB_MouseDoubleClick">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid Margin="0,5,10,70">
                         <TextBlock HorizontalAlignment="Left" Margin="18,17,0,-33" TextWrapping="Wrap" Text="ID:" VerticalAlignment="Top"/>
                         <TextBlock x:Name="idPublicacionTB" HorizontalAlignment="Left" Margin="39,17,0,-33" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Id}"/>
                         <TextBlock HorizontalAlignment="Left" Margin="132,17,0,-33" TextWrapping="Wrap" Text="Fecha creacion:" VerticalAlignment="Top"/>
@@ -41,5 +41,22 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <TextBlock HorizontalAlignment="Left" Margin="49,391,0,0" TextWrapping="Wrap" Text="Total de seguidores:" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock x:Name="cantidadSeguidoresTB" HorizontalAlignment="Left" Margin="197,391,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="16"/>
+        <ListBox x:Name="followersLB" HorizontalAlignment="Left" Height="160" Margin="27,417,0,0" VerticalAlignment="Top" Width="737" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="10,5,10,50">
+                        <TextBlock HorizontalAlignment="Left" Margin="30,17,0,-33" TextWrapping="Wrap" Text="ID:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="idUsuarioTB" HorizontalAlignment="Left" Margin="51,17,0,-33" TextWrapping="Wrap" Text="{Binding Id }" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="144,17,0,-33" TextWrapping="Wrap" Text="Fecha creacion:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="usuarioFechaTB" HorizontalAlignment="Left" Margin="236,17,0,-33" TextWrapping="Wrap" Text="{Binding Fecha}" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="343,17,0,-33" TextWrapping="Wrap" Text="Username:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="usernameTB" HorizontalAlignment="Right" Margin="365,17,0,-33" TextWrapping="Wrap" Text="{Binding Username}" VerticalAlignment="Top"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Volver" HorizontalAlignment="Left" Margin="49,618,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
     </Grid>
 </Window>

@@ -60,6 +60,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="controlador\Controlador.cs" />
+    <Compile Include="vista\comentarioPublicacion.xaml.cs">
+      <DependentUpon>comentarioPublicacion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="vista\comentarPublicacion.xaml.cs">
       <DependentUpon>comentarPublicacion.xaml</DependentUpon>
     </Compile>
@@ -77,9 +80,6 @@
     </Compile>
     <Compile Include="vista\MenuLoggeado.xaml.cs">
       <DependentUpon>MenuLoggeado.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="vista\publicacionW.xaml.cs">
-      <DependentUpon>publicacionW.xaml</DependentUpon>
     </Compile>
     <Compile Include="vista\seguirUsuario.xaml.cs">
       <DependentUpon>seguirUsuario.xaml</DependentUpon>
@@ -125,6 +125,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="vista\comentarioPublicacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="vista\comentarPublicacion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -146,10 +150,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="vista\MenuLoggeado.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="vista\publicacionW.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

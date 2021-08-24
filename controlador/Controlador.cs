@@ -312,6 +312,8 @@ namespace Lab4.controlador
                 Post nuevoComentario = new Post("comentario", texto);
                 // seteamos el comentario con el autor
                 nuevoComentario.Autor = redSocial.UsuarioOnline;
+                // agrego el comentario a la publicacion
+                redSocial.Publicaciones.Find(i => i.Id == id).Comments.Add(nuevoComentario);
                 // agregamos el comentario a la lista de publicaciones de la red social
                 redSocial.Publicaciones.Add(nuevoComentario);
                 // agregamos el comentario a la lista de publicaciones del usuario
@@ -371,6 +373,21 @@ namespace Lab4.controlador
             return redSocial.UsuarioOnline.Publicaciones;
         }
 
+        public int getTotalFollowersUser()
+        {
+            return redSocial.UsuarioOnline.Followers.Count();
+
+        }
+
+        public List<User> getFollowersUsuario()
+        {
+            return redSocial.UsuarioOnline.Followers;
+        }
+
+        public List<Post> getComentarios(int index)
+        {
+            return redSocial.Publicaciones[index].Comments;
+        }
         
 
 
